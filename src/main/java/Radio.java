@@ -1,5 +1,5 @@
 public class Radio {
-    public int numberStation;
+    private int numberStation;
 
     public int getNumberStation() {
         return numberStation;
@@ -7,36 +7,34 @@ public class Radio {
 
     public void setNumberStation(int newNumber) {
         if (newNumber < 0 || newNumber > 9) {
-            return;
+            newNumber = 0;
         }
         numberStation = newNumber;
     }
 
     public void setNextNumberStation(String next) {
         if (next == "next") {
-            numberStation = numberStation + 1;
+            setNumberStation(getNumberStation() + 1);
+        } else {
+            getNumberStation();
         }
-        if (next != "next") {
-            numberStation = numberStation;
-        }
-        if (numberStation > 9) {
-            numberStation = 0;
-        }
+
     }
 
     public void setPrevNumberStation(String prev) {
         if (prev == "prev") {
             numberStation = numberStation - 1;
-        }
-        if (prev != "prev") {
-            numberStation = numberStation;
+        } else {
+            getNumberStation();
         }
         if (numberStation < 0) {
-            numberStation = 0;
+            numberStation = 9;
         }
     }
-
-    public int volumeRadio;
+//
+//    не могу придумать как правильно это сделать, не получается обойти первое условие в public void setNumberStation
+//            прошу помочь в решении.
+    private int volumeRadio;
 
     public int getVolumeRadio() {
         return volumeRadio;
@@ -56,25 +54,17 @@ public class Radio {
 
     public void setPlusVolumeRadio(String plus) {
         if (plus == "+") {
-            volumeRadio = volumeRadio + 1;
-        }
-        if (plus != "+") {
-            volumeRadio = volumeRadio;
-        }
-        if (volumeRadio > 10) {
-            volumeRadio = 10;
+            setVolumeRadio(getVolumeRadio() + 1);
+        } else {
+            getVolumeRadio();
         }
     }
 
     public void setMinusVolumeRadio(String minus) {
         if (minus == "-") {
-            volumeRadio = volumeRadio - 1;
-        }
-        if (minus != "-") {
-            volumeRadio = volumeRadio;
-        }
-        if (volumeRadio < 0) {
-            volumeRadio = 0;
+            setVolumeRadio(getVolumeRadio() - 1);
+        } else {
+            getVolumeRadio();
         }
     }
 }

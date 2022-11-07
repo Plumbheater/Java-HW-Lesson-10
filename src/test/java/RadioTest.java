@@ -92,7 +92,7 @@ public class RadioTest {
         number.setNumberStation(0);
         number.setPrevNumberStation("prev");
 
-        int expected = 0;
+        int expected = 9;
         int actual = number.getNumberStation();
 
         Assertions.assertEquals(expected, actual);

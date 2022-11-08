@@ -6,34 +6,26 @@ public class Radio {
     }
 
     public void setNumberStation(int newNumber) {
-        if (newNumber < 0 || newNumber > 9) {
+        if (newNumber > 9 || newNumber < 0) {
             newNumber = 0;
         }
         numberStation = newNumber;
     }
 
-    public void setNextNumberStation(String next) {
-        if (next == "next") {
-            setNumberStation(getNumberStation() + 1);
-        } else {
-            getNumberStation();
-        }
-
+    public void setNextNumberStation() {
+        int next = getNumberStation() + 1;
+        setNumberStation(next);
     }
 
-    public void setPrevNumberStation(String prev) {
-        if (prev == "prev") {
-            numberStation = numberStation - 1;
+    public void setPrevNumberStation() {
+        int prev = getNumberStation() - 1;
+        if (prev < 0) {
+            setNumberStation(9);
         } else {
-            getNumberStation();
-        }
-        if (numberStation < 0) {
-            numberStation = 9;
+            setNumberStation(prev);
         }
     }
-//
-//    не могу придумать как правильно это сделать, не получается обойти первое условие в public void setNumberStation
-//            прошу помочь в решении.
+
     private int volumeRadio;
 
     public int getVolumeRadio() {
@@ -52,19 +44,14 @@ public class Radio {
         }
     }
 
-    public void setPlusVolumeRadio(String plus) {
-        if (plus == "+") {
-            setVolumeRadio(getVolumeRadio() + 1);
-        } else {
-            getVolumeRadio();
-        }
+    public void setPlusVolumeRadio() {
+        int plus = getVolumeRadio() + 1;
+        setVolumeRadio(plus);
     }
 
-    public void setMinusVolumeRadio(String minus) {
-        if (minus == "-") {
-            setVolumeRadio(getVolumeRadio() - 1);
-        } else {
-            getVolumeRadio();
-        }
+    public void setMinusVolumeRadio() {
+        int minus = getVolumeRadio() - 1;
+        setVolumeRadio(minus);
+
     }
 }

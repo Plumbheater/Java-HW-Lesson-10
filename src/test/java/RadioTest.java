@@ -40,7 +40,7 @@ public class RadioTest {
     public void setNextNumberStation() {
         Radio number = new Radio();
         number.setNumberStation(8);
-        number.setNextNumberStation("next");
+        number.setNextNumberStation();
 
         int expected = 9;
         int actual = number.getNumberStation();
@@ -53,7 +53,7 @@ public class RadioTest {
     public void setNextMaxNumberStation() {
         Radio number = new Radio();
         number.setNumberStation(9);
-        number.setNextNumberStation("next");
+        number.setNextNumberStation();
 
         int expected = 0;
         int actual = number.getNumberStation();
@@ -62,23 +62,10 @@ public class RadioTest {
     }
 
     @Test
-    public void setNotNextNumberStation() {
-        Radio number = new Radio();
-        number.setNumberStation(8);
-        number.setNextNumberStation("afasrg");
-
-        int expected = 8;
-        int actual = number.getNumberStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-
-    @Test
     public void setPrevNumberStation() {
         Radio number = new Radio();
         number.setNumberStation(1);
-        number.setPrevNumberStation("prev");
+        number.setPrevNumberStation();
 
         int expected = 0;
         int actual = number.getNumberStation();
@@ -90,7 +77,7 @@ public class RadioTest {
     public void setPrevMinNumberStation() {
         Radio number = new Radio();
         number.setNumberStation(0);
-        number.setPrevNumberStation("prev");
+        number.setPrevNumberStation();
 
         int expected = 9;
         int actual = number.getNumberStation();
@@ -98,28 +85,17 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    //=============================================================================================
     @Test
-    public void setNotPrevNumberStation() {
-        Radio number = new Radio();
-        number.setNumberStation(8);
-        number.setPrevNumberStation("afasrg");
+    public void setVolumeRadio() {
+        Radio volume = new Radio();
+        volume.setVolumeRadio(10);
 
-        int expected = 8;
-        int actual = number.getNumberStation();
+        int expected = 10;
+        int actual = volume.getVolumeRadio();
 
         Assertions.assertEquals(expected, actual);
     }
-//=============================================================================================
-@Test
-public void setVolumeRadio() {
-    Radio volume = new Radio();
-    volume.setVolumeRadio(10);
-
-    int expected = 10;
-    int actual = volume.getVolumeRadio();
-
-    Assertions.assertEquals(expected, actual);
-}
 
     @Test
     public void setHighMaxVolumeRadio() {
@@ -147,7 +123,7 @@ public void setVolumeRadio() {
     public void setPlusVolumeRadio() {
         Radio volume = new Radio();
         volume.setVolumeRadio(9);
-        volume.setPlusVolumeRadio("+");
+        volume.setPlusVolumeRadio();
 
         int expected = 10;
         int actual = volume.getVolumeRadio();
@@ -160,21 +136,9 @@ public void setVolumeRadio() {
     public void setPlusMaxVolumeRadio() {
         Radio volume = new Radio();
         volume.setVolumeRadio(10);
-        volume.setPlusVolumeRadio("+");
+        volume.setPlusVolumeRadio();
 
         int expected = 10;
-        int actual = volume.getVolumeRadio();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void setNotPlusVolumeRadio() {
-        Radio volume = new Radio();
-        volume.setVolumeRadio(9);
-        volume.setPlusVolumeRadio("asdad");;
-
-        int expected = 9;
         int actual = volume.getVolumeRadio();
 
         Assertions.assertEquals(expected, actual);
@@ -185,7 +149,7 @@ public void setVolumeRadio() {
     public void setMinusVolumeRadio() {
         Radio volume = new Radio();
         volume.setVolumeRadio(10);
-        volume.setMinusVolumeRadio("-");
+        volume.setMinusVolumeRadio();
 
         int expected = 9;
         int actual = volume.getVolumeRadio();
@@ -197,21 +161,9 @@ public void setVolumeRadio() {
     public void setMinusMinVolumeRadio() {
         Radio volume = new Radio();
         volume.setVolumeRadio(0);
-        volume.setMinusVolumeRadio("-");
+        volume.setMinusVolumeRadio();
 
         int expected = 0;
-        int actual = volume.getVolumeRadio();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void setNotMinusVolumeRadio() {
-        Radio volume = new Radio();
-        volume.setVolumeRadio(1);
-        volume.setMinusVolumeRadio("awffq");
-
-        int expected = 1;
         int actual = volume.getVolumeRadio();
 
         Assertions.assertEquals(expected, actual);
